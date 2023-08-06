@@ -1,4 +1,3 @@
-
   <!DOCTYPE html>
   <html lang="en">
     <head>
@@ -50,15 +49,39 @@
        
 <div class="section" id="section-668ae078"><div class="section-container"><h1 class="heading">Twoooo</h1></div></div> 
 
-      <script type="module">      const path = window.location.pathname === '/' ? '' : window.location.pathname
-      const [ {default:App} ] = await Promise.all([
-        import('/_module.js')
-      ]).catch(e => console.error(e))
-      new App({
-        target: document.querySelector('body'),
-        hydrate: true,
-        props: {"component_0_props":{},"component_1_props":{"foo":"Twoooo"},"component_2_props":{}}
-      })</script>
+      <script type="module">
+      import('_symbols/cd47d937-68bf-4770-8ec1-9369d569ab6f.js')
+      .then(([ {default:App} ]) => {
+        new App({
+          target: document.querySelector('body'),
+          hydrate: true,
+          props: {"foo":"This is foo"}
+        })
+      })
+      .catch(e => console.error(e))
+    
+
+      import('_symbols/d9fc9527-a716-45d1-a93c-fad52ad8bb3b.js')
+      .then(([ {default:App} ]) => {
+        new App({
+          target: document.querySelector('body'),
+          hydrate: true,
+          props: {"logo":{"image":{"alt":"","src":"https://jbbjtodsvhsgjappwopg.supabase.co/storage/v1/object/public/sites/public-library/assets/logoipsum-261 (1).svg","url":"https://jbbjtodsvhsgjappwopg.supabase.co/storage/v1/object/public/sites/public-library/assets/logoipsum-261 (1).svg","size":3},"title":"Logo"},"site_nav":[{"link":{"url":"","label":"Home","active":false}},{"link":{"url":"/","label":"About"}},{"link":{"url":"/","label":"Contact"}}]}
+        })
+      })
+      .catch(e => console.error(e))
+    
+
+      import('_symbols/4e23d2d6-1323-43cf-8b82-54f16feb0440.js')
+      .then(([ {default:App} ]) => {
+        new App({
+          target: document.querySelector('body'),
+          hydrate: true,
+          props: {"nav":[{"link":{"url":"https://primosites.vercel.app/theme-minimal","label":"Copyright 2023"}}],"social":[{"icon":"mdi:twitter","link":{"url":"/","label":"Twitter"}},{"icon":"mdi:linkedin","link":{"url":"/","label":"Linkedin"}}]}
+        })
+      })
+      .catch(e => console.error(e))
+    </script>
     </body>
   </html>
   
