@@ -755,7 +755,17 @@ function create_fragment$2(ctx) {
 			mount_component(component_2, target, anchor);
 			current = true;
 		},
-		p: noop,
+		p(ctx, [dirty]) {
+			const component_0_changes = {};
+			if (dirty & /*component_0_props*/ 1) component_0_changes.props = /*component_0_props*/ ctx[0];
+			component_0.$set(component_0_changes);
+			const component_1_changes = {};
+			if (dirty & /*component_1_props*/ 2) component_1_changes.props = /*component_1_props*/ ctx[1];
+			component_1.$set(component_1_changes);
+			const component_2_changes = {};
+			if (dirty & /*component_2_props*/ 4) component_2_changes.props = /*component_2_props*/ ctx[2];
+			component_2.$set(component_2_changes);
+		},
 		i(local) {
 			if (current) return;
 			transition_in(component_0.$$.fragment, local);
@@ -779,17 +789,29 @@ function create_fragment$2(ctx) {
 	};
 }
 
-function instance$3($$self) {
-	let component_0_props = { foo: 'yeah' };
-	let component_1_props = { foo: 'yeah' };
-	let component_2_props = { foo: 'yeah' };
+function instance$3($$self, $$props, $$invalidate) {
+	let { component_0_props } = $$props;
+	let { component_1_props } = $$props;
+	let { component_2_props } = $$props;
+
+	$$self.$$set = $$props => {
+		if ('component_0_props' in $$props) $$invalidate(0, component_0_props = $$props.component_0_props);
+		if ('component_1_props' in $$props) $$invalidate(1, component_1_props = $$props.component_1_props);
+		if ('component_2_props' in $$props) $$invalidate(2, component_2_props = $$props.component_2_props);
+	};
+
 	return [component_0_props, component_1_props, component_2_props];
 }
 
 class Component$3 extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance$3, create_fragment$2, safe_not_equal, {});
+
+		init(this, options, instance$3, create_fragment$2, safe_not_equal, {
+			component_0_props: 0,
+			component_1_props: 1,
+			component_2_props: 2
+		});
 	}
 }
 
