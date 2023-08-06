@@ -262,12 +262,6 @@ function claim_text(nodes, data) {
 function claim_space(nodes) {
     return claim_text(nodes, ' ');
 }
-function set_data(text, data) {
-    data = '' + data;
-    if (text.data === data)
-        return;
-    text.data = data;
-}
 function head_selector(nodeId, head) {
     const result = [];
     let started = 0;
@@ -669,9 +663,7 @@ function create_fragment$1(ctx) {
 			append_hydration(div0, h1);
 			append_hydration(h1, t);
 		},
-		p(ctx, [dirty]) {
-			if (dirty & /*foo*/ 1) set_data(t, /*foo*/ ctx[0]);
-		},
+		p: noop,
 		i: noop,
 		o: noop,
 		d(detaching) {
@@ -682,12 +674,11 @@ function create_fragment$1(ctx) {
 
 function instance$1($$self, $$props, $$invalidate) {
 	let { props } = $$props;
-	let { foo } = $$props;
+	let foo = props['foo'];
 	console.log({ foo });
 
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(1, props = $$props.props);
-		if ('foo' in $$props) $$invalidate(0, foo = $$props.foo);
 	};
 
 	return [foo, props];
@@ -696,7 +687,7 @@ function instance$1($$self, $$props, $$invalidate) {
 class Component$1 extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance$1, create_fragment$1, safe_not_equal, { props: 1, foo: 0 });
+		init(this, options, instance$1, create_fragment$1, safe_not_equal, { props: 1 });
 	}
 }
 
